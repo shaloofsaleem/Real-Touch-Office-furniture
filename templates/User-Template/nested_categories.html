@@ -1,0 +1,11 @@
+<ul >
+    {% for category in categories %}
+        <li>
+            <a href="">{{ category.name }}</a>
+            {% if category.children %}
+                <!-- Recursive call to display nested structure -->
+                {% include 'User/nested_categories.html' with categories=category.children %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

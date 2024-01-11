@@ -1,0 +1,16 @@
+<form  method="post" action="?q=selectvariant" id="post-color">
+    {% csrf_token %}
+    <div id="appendHere" class="details-filter-row details-row-size">
+        <label>Color:</label>
+        
+        <div class="product-nav product-nav-thumbs">
+            {% for rs in colors %}
+            <input type="radio"   {% if variant.id == rs.id %} checked {% endif %} name="variantid" id="variantid" value="{{ rs.id }}" onchange="this.form.submit();">
+            <a href="#" class="active"{% if variant.id == rs.id %} class="active" {% endif %}>
+                <img src="{{ rs.image }}" alt="product desc">
+            </a>
+            {% endfor %}
+        </div><!-- End .product-nav -->
+    </div><!-- End .details-filter-row -->
+
+</form>

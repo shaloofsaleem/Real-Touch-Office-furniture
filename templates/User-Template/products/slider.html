@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+      }
+      .wrapper{
+        width: 300px;
+        height: 300px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.5);
+        overflow:hidden;
+        border-radius:15px;
+      }
+      .wrapper img{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+        /*--- selekton hover image ----*/
+        background-color: #ededed;
+        background: linear-gradient(
+          100deg,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, .5) 50%,
+          rgba(255, 255, 255, 0) 60%
+        ) #ededed;
+        background-size: 200% 100%;
+        background-position-x: 180%;
+        animation: 1s loading ease-in-out infinite;
+      }
+      @keyframes loading {
+        to {
+          background-position-x: -20%;
+        }
+      }
+      
+</style>
+<body>
+    <div class="wrapper">
+        <img src="" alt="" id="image-animate">
+      </div>
+</body>
+<script>
+    let imageAnim = document.getElementById("image-animate");
+
+let imageArray = [
+ "https://cdn.pixabay.com/photo/2022/09/07/10/01/landscape-7438429_960_720.jpg",
+  "https://cdn.pixabay.com/photo/2022/09/04/20/11/plane-7432680_960_720.jpg",
+  "https://cdn.pixabay.com/photo/2017/11/04/13/43/texture-2917553_960_720.jpg",
+  "https://cdn.pixabay.com/photo/2022/07/20/18/44/reading-7334749_960_720.png"
+]
+
+let imageIndex = 0;
+
+const startImage = () =>{
+  imageAnim.setAttribute("src",imageArray[imageIndex]);
+  imageIndex++;
+  if(imageIndex >= imageArray.length){
+    imageIndex = 0;
+  }
+}
+
+setInterval(startImage,800);
+</script>
+</html>

@@ -1,0 +1,80 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets\css\login.css' %}">
+</head>
+<body>
+    <div class="form-modal">
+    
+        <div class="form-toggle">
+            <button id="login-toggle" onclick="toggleLogin()">log in</button>
+            <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endif %}
+        {{ message }}
+        <div id="login-form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input  type="text" name="username" placeholder="Fuser Name">
+                <input  type="password" name="password" placeholder="Password">			
+                <button type="button" class="btn login">login</button>
+                <p><a href="javascript:void(0)">Forgotten account</a></p>
+                <hr/>
+    
+            </form>
+        </div>
+    
+        <div id="signup-form">
+            <form action="" method="post">
+                {% render_field form.email placeholder="email" class="form-control" %}
+                {% render_field form.first_name placeholder="Company_name" class="form-control" %}
+                {% render_field form.last_name placeholder="name" class="form-control" %}
+                {% render_field form.username placeholder="user_name" class="form-control" %}
+                {% render_field form.password1 placeholder="Password" class="form-control" %}
+                {% render_field form.password2 placeholder="Confirm-Password" class="form-control" %}
+
+                {% comment %} <input type="email" placeholder="Enter your email"/>
+                <input type="text" placeholder="Choose username"/>
+                <input type="password" placeholder="Create password"/> {% endcomment %}
+                <button type="button" class="btn signup">create account</button>
+                <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
+                <hr/>
+               
+            </form>
+        </div>
+    
+    </div>
+    
+</body>
+<script>
+    function toggleSignup(){
+        document.getElementById("login-toggle").style.backgroundColor="#fff";
+         document.getElementById("login-toggle").style.color="#222";
+         document.getElementById("signup-toggle").style.backgroundColor="#57b846";
+         document.getElementById("signup-toggle").style.color="#fff";
+         document.getElementById("login-form").style.display="none";
+         document.getElementById("signup-form").style.display="block";
+     }
+     
+     function toggleLogin(){
+         document.getElementById("login-toggle").style.backgroundColor="#57B846";
+         document.getElementById("login-toggle").style.color="#fff";
+         document.getElementById("signup-toggle").style.backgroundColor="#fff";
+         document.getElementById("signup-toggle").style.color="#222";
+         document.getElementById("signup-form").style.display="none";
+         document.getElementById("login-form").style.display="block";
+     }
+     
+</script>
+</html>

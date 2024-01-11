@@ -1,0 +1,129 @@
+{% extends 'User-Template/base-layout.html' %}
+{% load static %}
+
+{% block title %}
+Custom Made Office Collection Online in Dubai
+{% endblock title %}
+
+{% block content  %}
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('{% static 'assets/images/products-banner.png' %}')">
+        <div class="container">
+            <h1 class="page-title">RealTouch<span>Office Furniture</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">RealTouch Products</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Office Furniture</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="toolbox">
+                <div class="toolbox-left">
+                    <div class="toolbox-info">
+                        Showing <span>{{product.count}}</span> Products
+                    </div><!-- End .toolbox-info -->
+                </div><!-- End .toolbox-left -->
+            </div><!-- End .toolbox -->
+        <div class="row">
+            {% for products in product %}
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="product product-3">
+                    <figure class="product-media">
+                        <span class="product-label">Sale</span>
+                        <a href="{% url 'product_detail' products.id products.slug %}">
+                            <img src="{{products.image.url}}" alt="Product image" class="product-image">
+                        </a>
+
+                        <div class="product-action-vertical">
+                            <a href="#" class="btn-product-icon addTowishlist btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                            <a href="#" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                        </div><!-- End .product-action-vertical -->
+                    </figure><!-- End .product-media -->
+
+                    <div class="product-body">
+                        <div class="product-action">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn-product btn-cart"><span>Instant Quote</span></a>
+                        </div><!-- End .product-action -->
+                        <div class="product-cat">
+                            <a href="#">{{products.category}}</a>
+                        </div><!-- End .product-cat -->
+                        <h3 class="product-title"><a href="{% url 'product_detail' products.id products.slug %}">{{products.title}}</a></h3><!-- End .product-title -->
+                        {% comment %} <div class="product-price">
+                            <span class="new-price">$50.00</span>
+                            <span class="old-price">$84.00</span>
+                        </div><!-- End .product-price --> {% endcomment %}
+                    </div><!-- End .product-body -->
+
+                    <div class="product-footer">
+                        {% comment %} <div class="ratings-container">
+                            <div class="ratings">
+                                <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
+                            </div><!-- End .ratings -->
+                            <span class="ratings-text">( 4 Reviews )</span>
+                        </div><!-- End .rating-container --> {% endcomment %}
+
+                        <div class="product-nav product-nav-thumbs">
+                            
+                            <a href="#" class="active">
+                                <img src="assets/images/products/elements/product-thumb-1.jpg" alt="product desc">
+                            </a>
+                        </div><!-- End .product-nav -->
+                    </div><!-- End .product-footer -->
+                </div><!-- End .product -->
+            </div><!-- End .col-sm-6 col-lg-3 -->
+            {% endfor %}
+
+            
+        </div><!-- End .row -->
+
+           
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                
+                {% if product.has_previous %}
+                <li class="page-item ">
+                    <a class="page-link page-link-prev" href="?page={{product.previous_page_number}}" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                        <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                    </a>
+                </li>
+                {% endif %}
+                    
+                {% for num in product.paginator.page_range %}
+                {% if num == product.number %}
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#">{{num}}</a></li>
+                    {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+                {% endif %}
+                {% endfor %}
+                <li class="page-item"><a class="page-link" href="?page={{product.paginator.num_pages}}">Last</a></li>
+                {% if page.has_next %}
+                <li class="page-item">
+                    <a class="page-link page-link-next" href="?page={{product.next_page_number}}" aria-label="Next">
+                        Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+           
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+
+  
+</main><!-- End .main -->
+<script>
+    $(.addTowishlist).click(function (e){
+        e.preventDefault();
+    })
+</script>
+
+{% endblock %}

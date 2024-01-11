@@ -1,0 +1,385 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> {% block title %}
+        {% endblock title %}
+       </title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Molla - Bootstrap eCommerce Template">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/icons/Real-touch.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/icons/Real-touch.png' %}">
+    <link rel="manifest" href="{% static 'assets/images/icons/site.html' %}">
+    <link rel="mask-icon" href="{% static 'assets/images/icons/safari-pinned-tab.svg' %}" color="#666666">
+    <link rel="shortcut icon" href="{% static 'assets/images/icons/Real-touch.png' %}">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="{% static 'images/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% static 'assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css' %}">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jquery.countdown.css'} %">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/skins/skin-demo-9.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/demos/demo-9.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery !-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+</head>
+
+<body>
+    {% include "User-Template/includes/main.html" %}
+    <div class="page-wrapper">
+       {% include "User-Template/includes/header.html" %}
+        
+      
+
+    {% block content  %}
+
+    {% endblock  %}
+        {% comment %} {% include "User/Include/whatsapp.html" %}
+        {% include "User/Include/LiveChat.html" %} {% endcomment %}
+        
+        {% include "User-Template/includes/footer.html" %}
+        {% include "User-Template/includes/livechat.html" %}
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100 text-center">Form</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="col-12">
+                			<h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
+                			<p class="mb-2">Use the form below to get in touch with the sales team</p>
+
+                			<form action="#" class="contact-form mb-3">
+                				<div class="row">
+                					<div class="col-sm-6">
+                                        <label for="cname" class="sr-only">Name</label>
+                						<input type="text" class="form-control" id="cname" placeholder="Name *" required>
+                					</div><!-- End .col-sm-6 -->
+
+                					<div class="col-sm-6">
+                                        <label for="cemail" class="sr-only">Email</label>
+                						<input type="email" class="form-control" id="cemail" placeholder="Email *" required>
+                					</div><!-- End .col-sm-6 -->
+                				</div><!-- End .row -->
+
+                				<div class="row">
+                					<div class="col-sm-6">
+                                        <label for="cphone" class="sr-only">Phone</label>
+                						<input type="tel" class="form-control" id="cphone" placeholder="Phone">
+                					</div><!-- End .col-sm-6 -->
+
+                					<div class="col-sm-6">
+                                        <label for="csubject" class="sr-only">Subject</label>
+                						<input type="text" class="form-control" id="csubject" placeholder="Subject">
+                					</div><!-- End .col-sm-6 -->
+                				</div><!-- End .row -->
+
+                                <label for="cmessage" class="sr-only">Message</label>
+                				<textarea class="form-control" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
+
+                				<button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                					<span>SUBMIT</span>
+            						<i class="icon-long-arrow-right"></i>
+                				</button>
+                			</form><!-- End .contact-form -->
+                		</div><!-- End .col-lg-6 -->
+                        
+
+                        <script>
+                           
+                        </script>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+            <form action="{% url 'home:search' %}" method="post" class="mobile-search">
+                {% csrf_token %}
+                <label for="query" class="sr-only">Search</label>
+                <input type="search" class="form-control" name="query" id="query" placeholder="Search in..." required>
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form>
+            
+            <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    {% for category in categories %}
+                    <li class="active">
+                        <a href="#">{{ category.name }}</a>
+                            
+                        <ul>
+                            {% for subcategory in category.children %}
+                            <li>
+                                <a href="/category/{{subcategory.id}}/{{subcategory.slug}}">{{ subcategory.name }}</a>
+                                {% if subcategory.children %}
+                                    <!-- Recursive call to display nested structure -->
+                                    {% include 'User/nested_categories.html' with categories=subcategory.children %}
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                           
+                        </ul>
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+            </nav><!-- End .mobile-nav -->
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100088497903298" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="https://www.instagram.com/realtouchofficefurniture23/?next=%2F" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container -->
+
+    <!-- Sign in / Register Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill nav-border-anim" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="singin-email">Username or email address *</label>
+                                            <input type="text" class="form-control" id="singin-email" name="singin-email" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="singin-password">Password *</label>
+                                            <input type="password" class="form-control" id="singin-password" name="singin-password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-footer">
+                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                <span>LOG IN</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="signin-remember">
+                                                <label class="custom-control-label" for="signin-remember">Remember Me</label>
+                                            </div><!-- End .custom-checkbox -->
+
+                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                    <div class="form-choice">
+                                        <p class="text-center">or sign in with</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-g">
+                                                    <i class="icon-google"></i>
+                                                    Login With Google
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-f">
+                                                    <i class="icon-facebook-f"></i>
+                                                    Login With Facebook
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .form-choice -->
+                                </div><!-- .End .tab-pane -->
+                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="register-email">Your email address *</label>
+                                            <input type="email" class="form-control" id="register-email" name="register-email" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-password">Password *</label>
+                                            <input type="password" class="form-control" id="register-password" name="register-password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-footer">
+                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                <span>SIGN UP</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="register-policy" required>
+                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                            </div><!-- End .custom-checkbox -->
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                    <div class="form-choice">
+                                        <p class="text-center">or sign in with</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-g">
+                                                    <i class="icon-google"></i>
+                                                    Login With Google
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login  btn-f">
+                                                    <i class="icon-facebook-f"></i>
+                                                    Login With Facebook
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .form-choice -->
+                                </div><!-- .End .tab-pane -->
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+   
+    
+            
+
+    <div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="row no-gutters bg-white newsletter-popup-content">
+                    <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
+                        <div class="banner-content text-center">
+                            <img src="{% static 'assets/images/logo/realTouch-footer-logo.png' %}" class="logo" alt="logo" width="200" height="75">
+                            {% comment %} <h2 class="banner-title">get <span>25<light>%</light></span> off</h2> {% endcomment %}
+                            <h3> Efficient and Stylish Office Workstation in Dubai</h3>
+                            <p>Subscribe to the RealTouch Office Furniture newsletter to receive timely updates from your favorite products.</p>
+                            <form action="#">
+                                <div class="input-group input-group-round">
+                                    <input type="email" class="form-control form-control-white" placeholder="Your Email Address" aria-label="Email Adress" required>
+                                    <div class="input-group-append">
+                                        <button class="btn" type="submit"><span>go</span></button>
+                                    </div><!-- .End .input-group-append -->
+                                </div><!-- .End .input-group -->
+                            </form>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
+                                <label class="custom-control-label" for="register-policy-2">Do not show this popup again</label>
+                            </div><!-- End .custom-checkbox -->
+                        </div>
+                    </div>
+                    <div class="col-xl-2-5col col-lg-5 ">
+                        <img src="{% static 'assets/images/popup/newsletter/offer.png' %}" class="newsletter-img" alt="newsletter">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+     // Example starter JavaScript for disabling form submissions if there are invalid fields
+     (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+
+                    
+                    if(form.checkValidity() === true){
+                        //enter your code here 
+                        event.preventDefault();
+                         var form_data = {
+                             name : name_id.value,
+                             username : username_id.value,
+                             password : password_id.value
+                         }  
+
+                         console.log(form_data); //printing form data in Console
+                         document.forms[0].reset();    //reseting the form
+                         document.getElementById('myForm').classList.remove("was-validated");//reseting the form validation
+
+                    }
+
+                }, false);
+            });
+        }, false);
+    })();
+    
+</script>
+{% include "User-Template/includes/contact.html" %}
+
+    <script src=" {% static 'assets/js/jquery.min.js' %} "></script>
+    <script src=" {% static 'assets/js/bootstrap.bundle.min.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.hoverIntent.min.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.waypoints.min.js' %} "></script>
+    <script src=" {% static 'assets/js/superfish.min.js' %} "></script>
+    <script src=" {% static 'assets/js/owl.carousel.min.js' %} "></script>
+    <script src=" {% static 'assets/js/bootstrap-input-spinner.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.plugin.min.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.magnific-popup.min.js' %} "></script>
+    <script src=" {% static 'assets/js/jquery.countdown.min.js' %} "></script>
+    <!-- Main JS File -->
+    <script src=" {% static 'assets/js/main.js' %}"></script>
+    <script src=" {% static 'assets/js/demos/demo-9.js' %} "></script>
+</html>

@@ -1,0 +1,14 @@
+# Ignore environment files
+.env
+# Ignore database files
+db.sqlite3
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+*.pyc
+media
+logs
+.vscode
+user_env
+.idea
+uploads/

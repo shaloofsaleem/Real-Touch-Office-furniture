@@ -1,0 +1,165 @@
+{% load static %}
+<header class="header header-6">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-left">
+                <ul class="top-menu top-link-menu d-none d-md-block">
+                    <li>
+                        <a href="#">Links</a>
+                        <ul>
+                            <li><a href="tel:0552949878"><i class="icon-phone"></i>Call: +971 552949878</a></li>
+                        </ul>
+                    </li>
+                </ul><!-- End .top-menu -->
+            </div><!-- End .header-left -->
+
+            <div class="header-right">
+                <div class="social-icons social-icons-color">
+                    <a href="https://www.facebook.com/profile.php?id=100088497903298" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                    <a href="https://twitter.com/OfficeFurn94917" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://www.instagram.com/realtouchofficefurniture23/?next=%2F" class="social-icon social-instagram" title="Pinterest" target="_blank"><i class="icon-instagram"></i></a>
+                    <a href="https://www.pinterest.com/realtouchfurniture/" class="social-icon social-pinterest" title="Instagram" target="_blank"><i class="icon-pinterest-p"></i></a>
+                </div><!-- End .soial-icons -->
+                <ul class="top-menu top-link-menu">
+                    <li>
+                        <a href="#">Links</a>
+                        <ul>
+                            <li><a href="{% url 'feature:contact' %}" data-toggle="modal"><i class="icon-user"></i>Showrooms</a></li>
+                        </ul>
+                    </li>
+                </ul><!-- End .top-menu -->
+
+                <div class="header-dropdown">
+                    <a href="#">Locations</a>
+                    <div class="header-menu">
+                        <ul>
+                            <li><a href="#">U.A.E</a></li>
+                            
+                        </ul>
+                    </div><!-- End .header-menu -->
+                </div><!-- End .header-dropdown -->
+
+                
+            </div><!-- End .header-right -->
+        </div>
+    </div>
+    <div class="header-middle">
+        <div class="container">
+            <div class="header-left">
+                <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
+                    <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+                    <form action="{% url 'home:search' %}" method="post">
+                        {% csrf_token %}
+                        <div class="header-search-wrapper search-wrapper-wide">
+                            <label for="query" class="sr-only">Search</label>
+                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                            <input type="search" class="form-control" id="query" name="query" placeholder="Search product ..." required>
+                        </div><!-- End .header-search-wrapper -->
+                    </form>
+                </div><!-- End .header-search -->
+            </div>
+            <div class="header-center">
+                <a href="/" class="logo">
+                    <img src="{% static 'assets/images/logo/realTouch-logo.png' %}" alt="realtouch Logo" width="300" height="60">
+                </a>
+            </div><!-- End .header-left -->
+
+            <div class="header-right">
+                <div class="col-6 col-lg-4 col-xl-2">
+                    <div class="btn-wrap">
+                        <!-- Button trigger modal -->
+{% comment %} <button type="button" class="btn btn-primary" >
+    Launch demo modal
+  </button> {% endcomment %}
+                        <a href="#" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary btn-round"><i class="icon-user"></i><span>Instant Quote</span></a>
+                    </div><!-- End .btn-wrap -->
+                </div><!-- End .col-md-4 col-lg-2 -->
+            </div>
+        </div><!-- End .container -->
+    </div><!-- End .header-middle -->
+
+    <div class="header-bottom sticky-header">
+        <div class="container">
+            <div class="header-left">
+
+                <nav class="main-nav">
+                    <ul class="menu sf-arrows">
+                        <li>
+                            <a href="{% url 'product_list' %}" class="sf-with-ul">Products</a>
+
+                            <div class="megamenu megamenu-md">
+                                <div class="row no-gutters">
+                                    <div class="col-md-8">
+                                        <div class="menu-col">
+                                            <div class="row">
+                                                {% for category in categories %}
+                                                <div class="col-md-5">
+                                                    
+                                                    <div class="title" style="color: #1cc0a0;font-family: 'Montserrat';font-size: 36px;line-height: 44px;">{{ category.name }}</div><!-- End .menu-title -->
+                                                    <ul>
+                                                        {% for subcategory in category.children %}
+                                                        <li>
+                                                            <a href="/category/{{subcategory.id}}/{{subcategory.slug}}">{{ subcategory.name }}</a>
+                                                            {% if subcategory.children %}
+                                                                    <!-- Recursive call to display nested structure -->
+                                                                    {% include 'User/nested_categories.html' with categories=subcategory.children %}
+                                                            {% endif %}
+                                                        </li>
+                                                    
+                                                        {% endfor %}
+                                                    </ul>
+
+                                                
+                                                </div><!-- End .col-md-6 -->
+                                                {% endfor %}
+                                                
+                                            </div><!-- End .row -->
+                                        </div><!-- End .menu-col -->
+                                    </div><!-- End .col-md-8 -->
+
+                                    <div class="col-md-4">
+                                        <div class="banner banner-overlay">
+                                            <a href="" class="banner banner-menu">
+                                                <img src="{% static 'assets/images/menu/banner-1.png'%}" alt="Banner">
+
+                                                <div class="banner-content banner-content-top">
+                                                    <div class="banner-title text-white">Last <br>Chance<br><span><strong>Sale</strong></span></div><!-- End .banner-title -->
+                                                </div><!-- End .banner-content -->
+                                            </a>
+                                        </div><!-- End .banner banner-overlay -->
+                                    </div><!-- End .col-md-4 -->
+                                </div><!-- End .row -->
+                            </div><!-- End .megamenu megamenu-md -->
+                        </li>
+                        <li>
+                            <a href="{% url 'feature:customization' %}">CUSTOMIZATION</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'feature:about' %}" >ABOUT</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'feature:project' %}" >PROJECTS</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'feature:contact' %}" >CONTACT US</a>
+                        </li>
+                    </ul><!-- End .menu -->
+                </nav><!-- End .main-nav -->
+                <button class="mobile-menu-toggler">
+                    <span class="sr-only">Toggle mobile menu</span>
+                    <i class="icon-bars"></i>
+                </button>
+            </div><!-- End .header-left -->
+
+            <div class="header-right">
+                <a href="{% url 'wishlist' %}" class="wishlist-link">
+                    <i class="icon-heart-o"></i>
+                    <span class="wishlist-count">3</span>
+                    <span class="wishlist-txt">My Wishlist</span>
+                </a>
+
+            </div>
+        </div><!-- End .container -->
+    </div><!-- End .header-bottom -->
+</header><!-- End .header -->
+{% include "User-Template/includes/modal-contact.html" %}

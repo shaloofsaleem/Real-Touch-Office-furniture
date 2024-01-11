@@ -1,0 +1,69 @@
+{% extends 'User-Template/base-layout.html' %}
+{% load static %}
+{% block title %}
+Office Furniture Customize | Custom-Made Furniture
+{% endblock title %}
+{% block content  %}
+
+{% include "User-Template/Customisation/banner.html" %}
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="">The Key Steps to our<span>Customization Process</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container " class="pager-nav" aria-label="Page navigation">
+
+            {% for d in data %}
+            <article class=" entry-list" style="padding-left:70px ;padding-right: 70px;">
+                
+                <div class="row align-items-center">
+                    <div class="col-md-8 pager-link pager-link-prev"  href="#" aria-label="Previous" tabindex="-1">
+                        <figure class="entry-media ">
+                            <a href="#">
+                                <img src="{{d.image.url}}" alt="image desc">
+                            </a>
+                        </figure><!-- End .entry-media -->
+                    </div><!-- End .col-md-4 -->
+                         <!-- Vertical divider -->
+                        <div class="vr vr-blurry" style="height: 250px;"></div>
+                    <div class="col-md-4 pager-link pager-link-next" href="#" aria-label="Next" tabindex="-1">
+                        <div class="entry-body">
+                            
+
+                            <h2 class="entry-title">
+                                <a href="">{{d.name}}   </a>
+                            </h2><!-- End .entry-title -->
+
+                            <div class="entry-content">
+                                <p>{{d.discription}} </p>
+                                <a href="" class="read-more">Continue Reading</a>
+                            </div><!-- End .entry-content -->
+                        </div><!-- End .entry-body -->
+                    </div><!-- End .col-md-8 -->
+                </div><!-- End .row -->
+                
+            </article><!-- End .entry -->
+
+            
+            {% endfor %}
+            
+           
+        </div>
+
+    </div><!-- End Elements list -->
+    {% include "User-Template/Customisation/model.html" %}
+</main><!-- End .main -->
+
+
+{% endblock %}

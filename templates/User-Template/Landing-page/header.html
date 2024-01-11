@@ -1,0 +1,28 @@
+<div class="container my-5 pt-4">
+    <div class="row">
+      {% for h in hero %}
+      <div class="col-lg-6">
+        <img class="w-100 shadow" style="border-radius: 50px;" src="{{h.images.url}}" />
+      </div>
+      <div class="col-lg-6">
+       
+        <div class="pt-2">
+            <h1 class="entry-title ">How we bring your office space dream to life?</h1>
+            <p class="tab-pane fade show active">{{h.discription}}</p>
+            <p class="tab-pane title-link pt-4 ">{{h.text}}</p>
+            {% comment %} <ul class="tab-pane">
+                <li><span></span><a href="#">Free 3D Design Layout</a></li>
+                <li><span></span><a href="#">Free Technical Site Visit</a></li>
+                <li><span></span><a href="#">Free Project Budget Estimation</a></li>
+            </ul> {% endcomment %}
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  <div class="text-center py-3">
+    <a href="{% url 'feature:customization' %}">
+      <button type="button" class="btn btn-primary btn-round btn-shadow page-title">CUSTOMIZE NOW</button>
+    </a>
+    
+  </div>
+</div>  
