@@ -1,1 +1,1 @@
-web: gunicorn RealTouchOffice.wsgi
+web: gunicorn 'RealTouchOffice.wsgi'

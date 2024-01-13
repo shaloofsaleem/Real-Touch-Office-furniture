@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-tl)-(5#5_f=zk@=sy4np@^y3h87(ddt4j9^%5y$-5m#)1$%vc(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -84,10 +84,21 @@ WSGI_APPLICATION = 'RealTouchOffice.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PORT': '17310',
+        'PASSWORD': 'FG45*b34B6eCed4cCf2-cDAEE341f*AF',
     }
 }
 
@@ -132,9 +143,8 @@ STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'static')
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
