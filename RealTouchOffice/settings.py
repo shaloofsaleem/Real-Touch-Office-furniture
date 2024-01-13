@@ -93,12 +93,13 @@ WSGI_APPLICATION = 'RealTouchOffice.wsgi.application'
 
 DATABASES = {
     'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'monorail.proxy.rlwy.net',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PORT': '17310',
-        'PASSWORD': 'FG45*b34B6eCed4cCf2-cDAEE341f*AF',
+        'PASSWORD': 'f12cacD6gge2f134gbFbgB5Bdefdce1A',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '41554',
     }
 }
 
