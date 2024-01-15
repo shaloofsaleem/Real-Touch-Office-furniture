@@ -12,10 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+DATABASE_URL = 'postgresql://postgres:-Dga3D31bA64c*c-bB-4C1343EBdGcG*@postgres.railway.internal:5432/railway'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -92,15 +93,15 @@ WSGI_APPLICATION = 'RealTouchOffice.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'f12cacD6gge2f134gbFbgB5Bdefdce1A',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '41554',
-    }
+    #  'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'your_database_name',
+    #     'USER': 'your_database_user',
+    #     'PASSWORD': 'your_database_password',
+    #     'HOST': 'your_database_host',  # This is usually the hostname provided by Railway
+    #     'PORT': 'your_database_port',  # This is usually the port provided by Railway
+    # }
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 
