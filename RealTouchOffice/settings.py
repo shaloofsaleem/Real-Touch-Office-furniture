@@ -35,6 +35,9 @@ DATABASE_URL=os.getenv("DATABASE_URL")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["*"]
+CSRF_ALLOWED_ORIGINS = ["*"]
+CORS_ORIGINS_WHITELIST = ["*"]
 
 
 # Application definition
