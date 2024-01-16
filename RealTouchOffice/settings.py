@@ -35,9 +35,7 @@ DATABASE_URL=os.getenv("DATABASE_URL")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["*"]
-CSRF_ALLOWED_ORIGINS = ["*"]
-CORS_ORIGINS_WHITELIST = ["*"]
+
 
 
 # Application definition
@@ -115,8 +113,6 @@ DATABASES = {
         'PORT': '18902',  # This is usually the port provided by Railway
         
     },
-
-    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 
