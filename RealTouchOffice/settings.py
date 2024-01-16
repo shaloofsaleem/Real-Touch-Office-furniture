@@ -27,15 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DATABASE_URL=os.getenv("DATABASE_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
 
 
 # Application definition
@@ -68,7 +67,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'RealTouchOffice.urls'
@@ -111,8 +109,8 @@ DATABASES = {
         'PASSWORD': '-Dga3D31bA64c*c-bB-4C1343EBdGcG*',
         'HOST': 'viaduct.proxy.rlwy.net',  # This is usually the hostname provided by Railway
         'PORT': '18902',  # This is usually the port provided by Railway
-        
-    },
+    }
+    # "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 
