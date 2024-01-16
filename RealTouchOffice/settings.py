@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tl)-(5#5_f=zk@=sy4np@^y3h87(ddt4j9^%5y$-5m#)1$%vc('
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+DATABASE_URL=os.getenv("DATABASE_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -60,6 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'RealTouchOffice.urls'
@@ -102,8 +110,10 @@ DATABASES = {
         'PASSWORD': '-Dga3D31bA64c*c-bB-4C1343EBdGcG*',
         'HOST': 'viaduct.proxy.rlwy.net',  # This is usually the hostname provided by Railway
         'PORT': '18902',  # This is usually the port provided by Railway
-    }
-    # "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+        
+    },
+
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 
