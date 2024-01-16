@@ -30,7 +30,7 @@ class Product(models.Model):
     design = models.CharField(max_length=255)
     Top = models.CharField(max_length=255)
     metrial = models.CharField(max_length=255)
-    description = models.TextField(max_length=255)
+    description = models.TextField(blank=True)
     image=models.ImageField(upload_to='images/',null=False)
     price = models.DecimalField(max_digits=12, decimal_places=2,default=0)
     amount=models.IntegerField(default=0)
