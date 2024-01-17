@@ -28,7 +28,9 @@ SECRET_KEY = 'django-insecure-tl)-(5#5_f=zk@=sy4np@^y3h87(ddt4j9^%5y$-5m#)1$%vc(
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+CSRF_TRUSTED_ORIGINS = ["https://real-touch-office-furniture-production.up.railway.app/"]
+CSRF_ALLOWED_ORIGINS = ["https://real-touch-office-furniture-production.up.railway.app/"]
+CORS_ORIGINS_WHITELIST = ["https://real-touch-office-furniture-production.up.railway.app/"]
 
 # Application definition
 
