@@ -1,16 +1,12 @@
 from django.urls import path
-from . import views
+from . import views as v
 
+app_name = 'account'
 urlpatterns = [
-    path('update/', views.user_update, name='user_update'),
-    path('password/', views.user_password, name='user_password'),
-    path('orders/', views.user_orders, name='user_orders'),
-    path('orders_product/', views.user_order_product, name='user_order_product'),
-    path('orderdetail/<int:id>', views.user_orderdetail, name='user_orderdetail'),
-    path('order_product_detail/<int:id>/<int:oid>', views.user_order_product_detail, name='user_order_product_detail'),
-    path('comments/', views.user_comments, name='user_comments'),
-    path('deletecomment/<int:id>', views.user_deletecomment, name='user_deletecomment'),
-    path('login/', views.login_form, name='login'),
-    path('logout/', views.logout_func, name='logout'),
-    path('signup/', views.signup_form, name='signup'),
+    path('login/',v.LoginPage ,name='login'),
+    path('signup/',v.SignupPage, name= 'signup'),
+    path('activate/<email_token>/',v.activation_mail, name= 'activate'),
+
+
+     
 ]

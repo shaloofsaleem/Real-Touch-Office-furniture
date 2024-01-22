@@ -7,4 +7,5 @@ urlpatterns = [
     path('about/',v.About,name="about"),
     path('contact/',v.Contact,name="contact"),
     path('project/',v.Project,name="project"),    
+    path('metrial/',v.MetrialColor,name="metrial")
 ]

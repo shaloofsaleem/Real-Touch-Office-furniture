@@ -47,3 +47,12 @@ def Contact(request):
 
 def Project(request):
     return render (request,'User-Template/Project/project.html')
+
+def MetrialColor(request):
+    metrial = MetrialColorBord.objects.all()
+    context ={
+        'metrial':metrial
+    }
+    return render (request,'User-Template/features_model\metrial.html',context)
+
+

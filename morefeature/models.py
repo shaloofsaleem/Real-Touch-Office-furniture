@@ -2,6 +2,10 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.forms import TextInput, Textarea,ClearableFileInput
 from django.forms import ModelForm
+import uuid
+from django.urls import reverse
+
+
 
 # Create your models here.
 class BodyAbout(models.Model):
@@ -63,6 +67,7 @@ class ContactMessage(models.Model):
     name      = models.CharField(blank=True, max_length=250)
     phone_no  = models.CharField(blank=True, max_length=50)
     email = models.EmailField(blank=True,max_length=50 )
+    company= models.CharField(blank= True, max_length=50 )
     subject = models.CharField(blank=True, max_length=255)
     file = models.FileField(blank=True,)
     message = models.TextField(blank=True, max_length=550 )
@@ -85,6 +90,7 @@ class ContactForm(ModelForm):
             'name':TextInput(attrs={'class':"form-control", 'id':"cname", 'placeholder':"Name *", }),
             'email':TextInput(attrs={'class':"form-control" ,'id':"cemail" ,'placeholder':"Email *" }),
             'phone_no':TextInput(attrs={'name':"phone_no", 'class':"form-control" ,'id':"cphone", 'placeholder':"Phone"}),
+            'company':TextInput(attrs={ 'name':"company", 'class':"form-control", 'id':"csubject" ,'placeholder':"company"}),
             'subject':TextInput(attrs={ 'name':"subject", 'class':"form-control", 'id':"csubject" ,'placeholder':"Subject"}),
             'file' : ClearableFileInput(attrs={ 'name':"files", 'class':"form-control", 'id':"cfiles" }),
             'message':Textarea(attrs={'class':"form-control", 'name':"message" ,'cols':"30" ,'rows':"4", 'id':"cmessage"  ,'placeholder':"Message *"}),
@@ -124,3 +130,34 @@ class SubscribeForm(ModelForm):
         #     'message':Textarea(attrs={'class':"form-control", 'name':"message" ,'cols':"30" ,'rows':"4", 'id':"cmessage"  ,'placeholder':"Message *"}),
 
         }
+
+
+class Category_Metrial(models.Model):
+    id               = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name             =   models.CharField(max_length=255,db_index=True)
+    image            =   models.ImageField(upload_to='color-image', null=True, blank=True,)
+    slug             =   AutoSlugField(populate_from='name',max_length=255,unique=True,null=True)
+    description      =   models.TextField(blank=True,null=True)
+    parent_id        =   models.ForeignKey('self', on_delete=models.SET_NULL, null=True,blank=True, related_name='category_parent')
+    is_active        =   models.BooleanField(default=True)   
+    created_date     =   models.DateTimeField(auto_now_add=True)
+    modified_date    =   models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('color_detail', kwargs={'slug': self.slug})
+
+
+class MetrialColorBord(models.Model):
+    id               = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name             =   models.CharField(max_length=255,db_index=True)
+    image            =   models.ImageField(upload_to='color-image', null=True, blank=True,)
+    slug             =   AutoSlugField(populate_from='name',max_length=255,unique=True,null=True)
+    description      =   models.TextField(blank=True,null=True)
+    is_active        =   models.BooleanField(default=True)   
+    created_date     =   models.DateTimeField(auto_now_add=True)
+    modified_date    =   models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.name

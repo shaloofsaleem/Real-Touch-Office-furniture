@@ -1,0 +1,40 @@
+{% extends 'User-Template/base-layout.html' %}
+{% load static %}
+{% block title %}
+Office Furniture Customize | Custom-Made Furniture
+{% endblock title %}
+{% block content  %}
+<div class="container-fluid">
+    <h2 class="title text-center mb-3">Material and Colors</h2><!-- End .title -->
+
+    <div class="heading heading-flex align-items-start">
+        <div class="heading-left">
+            <h2 class="title">Simple title <span class="title-separator">/</span> Subtitle <span class="title-separator">/</span> Product Filter</h2><!-- End .title -->
+            <p class="title-desc">Donec consectetuer ligula vulputate sem tristique cursus. </p><!-- End .title-desc -->
+        </div><!-- End .heading-left -->
+    </div>    
+    <div class="row">
+        {% for m in metrial  %}
+        <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="product product-5 text-center">
+                <figure class="product-media">
+                    <span class="product-label label-top">Top</span>
+                    <a href="product.html">
+                        <img src="{{m.image.url}}" data-zoom-image="{{m.image.url}}" alt="Product image" class="product-image">
+                    </a>
+                    
+                </figure><!-- End .product-media -->
+
+                <div class="product-body">
+                    <h3 class="product-title"><a href="product.html">{{m.name}}</a></h3><!-- End .product-title -->
+                    
+                </div><!-- End .product-body -->
+            </div><!-- End .product -->
+        </div><!-- End .col-sm-6 col-md-4 col-lg-3 col-xl-2 -->
+        {% endfor %}
+
+        
+    </div><!-- End .row -->
+</div><!-- End .container-fluid -->
+
+{% endblock %}

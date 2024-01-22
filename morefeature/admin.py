@@ -30,10 +30,13 @@ class ContactAdmin(admin.ModelAdmin):
 admin.site.register(ContactMessage ,ContactAdmin)
 class customizeAdmin(admin.ModelAdmin):
         list_display = ['name' ]
-        readonly_fields=('name',)
                
 admin.site.register(customize,customizeAdmin)
 class SubscribAdmin(admin.ModelAdmin):
         list_display = ['email' ]
         readonly_fields=('email',)
 admin.site.register(Subscription,SubscribAdmin)
+
+admin.site.register(Category_Metrial)
+admin.site.register(MetrialColorBord)
+

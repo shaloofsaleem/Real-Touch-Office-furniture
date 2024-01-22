@@ -8,7 +8,7 @@ from django.utils.crypto import get_random_string
 
 from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from product.models import Category, Product, Variants
-from account.models import UserProfile
+from account.models import *
 
 
 def index(request):
